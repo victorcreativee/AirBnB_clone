@@ -14,6 +14,7 @@ class BaseModel:
     BaseModel class take care of the initialization,
     serialization and deserialization of instances
     """
+
     def __init__(self, *args, **kwargs):
         """Initialization of a BaseModel instance"""
         if (len(kwargs) == 0):
@@ -51,7 +52,7 @@ class BaseModel:
         """Return dictionary representation of BaseModel class."""
         nw_dct = dict(self.__dict__)
         nw_dct['__class__'] = self.__class__.__name__
-        nw_dct['created_at'] = self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
-        nw_dct['updated_at'] = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
+        nw_dct['created_at'] = self.created_at.isoformat(timespec='seconds')
+        nw_dct['updated_at'] = self.updated_at.isoformat(timespec='seconds')
 
         return (nw_dct)
