@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+"""
+console application 
+"""
 import cmd
 import models
 from shlex import split as split
